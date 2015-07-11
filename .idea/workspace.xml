@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7032f241-27d9-4dbe-b3e1-448f81bc664b" name="Default" comment="Updated the function descriptions.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Housing.db" afterPath="$PROJECT_DIR$/Housing.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/housingdatabase.py" afterPath="$PROJECT_DIR$/housingdatabase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadextantdata.py" afterPath="$PROJECT_DIR$/loadextantdata.py" />
+    <list default="true" id="7032f241-27d9-4dbe-b3e1-448f81bc664b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Portland Housing Tracker.iws" />
@@ -340,7 +337,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436657641194</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Made adjustments for PEP-8 compliance and added a neighborhoods field to the database (and associated commands).">
+      <created>1436658150167</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1436658150167</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -366,8 +369,8 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822478" sideWeight="0.49370277" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33034572" sideWeight="0.49706128" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822478" sideWeight="0.51301426" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290653" sideWeight="0.49706128" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290653" sideWeight="0.511335" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290653" sideWeight="0.48866498" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -391,7 +394,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit part 2" />
     <MESSAGE value="Updated the function descriptions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated the function descriptions." />
+    <MESSAGE value="Made adjustments for PEP-8 compliance and added a neighborhoods field to the database (and associated commands)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made adjustments for PEP-8 compliance and added a neighborhoods field to the database (and associated commands)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
