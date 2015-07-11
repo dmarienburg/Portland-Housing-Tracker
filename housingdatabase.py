@@ -1,11 +1,11 @@
 __author__ = 'David'
 
-from datetime import datetime
-
 from peewee import *
-import loadextantdata
+from datetime import datetime
+from loadextantdata import get_data
 
 db = SqliteDatabase("Housing.db")
+
 
 class Housing(Model):
     """
@@ -13,6 +13,7 @@ class Housing(Model):
     """
     building_name = CharField(max_length=100)
     address = CharField(max_length=255)
+    neighborhood = CharField(max_length=255, default="-")
     available_subsidized_units = IntegerField(default=0)
     num_of_subsidized_units = IntegerField(default=0)
     available_affordable_units = IntegerField(default=0)
@@ -27,12 +28,15 @@ class Housing(Model):
     number = IntegerField(default=0)
     extra_1 = CharField(max_length=50, default=" ")
     extra_2 = CharField(max_length=50, default=" ")
+    time = TimeField(default=datetime.now)
 
     class Meta:
         database = db
 
+
 def add_housing_complex(building=None,
                         address=None,
+                        neighbor=None,
                         asub=None,
                         sub=None,
                         aaff=None,
@@ -53,6 +57,7 @@ def add_housing_complex(building=None,
     try:
         Housing.create(building_name=building,
                        address=address,
+                       neighborhood=neighbor,
                        available_subsidized_units=asub,
                        num_of_subsidized_units=sub,
                        available_affordable_units=aaff,
@@ -70,6 +75,7 @@ def add_housing_complex(building=None,
     except:
         return "Error"
 
+
 def remove_housing_complex(entry):
     """
     This will remove a housing model from the Housing table.
@@ -80,12 +86,21 @@ def remove_housing_complex(entry):
         Housing.delete_instance(entry)
         print("Entry deleted")
 
-def change_available_housing():
+
+def modify_data(building, address, value, field):
     """
-    This will modify either the available_subsidized_units or the available_affordable_units
+    This will modify either the value of a given field checking against the building's name and address to ensure the
+    correct model is modified
     :return:
     """
-    pass
+    try:
+        Housing.update(**{field: value}).where(
+            Housing.building_name == building,
+            Housing.address == address).execute()
+    except ValueError:
+        return "Error updating entry for {}".format(building)
+    return "{}'s record successfully updated".format(building)
+
 
 def search_entries():
     """
@@ -93,6 +108,7 @@ def search_entries():
     :return:
     """
     view_entry(input("search query: "))
+
 
 def view_entry(search_query=None):
     """
@@ -106,6 +122,7 @@ def view_entry(search_query=None):
 
     for entry in entries:
         print(entry.building_name, entry.num_of_subsidized_units)
+
 
 def return_specific(name=None):
     """
@@ -122,12 +139,13 @@ def return_specific(name=None):
     for entry in entries:
         print(entry.building_name, entry.address)
 
+
 def load_database():
     """
     Initializes the data base loading it from the csv downloaded from google along with the loadextantdata module.
     :return:
     """
-    data = loadextantdata.get_data()
+    data = get_data()
     for name, address, units, subu, au, propm, cont, web, type, hp, col, num, ext1, ext2 in data:
         Housing.create(
             building_name=name,
@@ -150,7 +168,4 @@ def load_database():
 if __name__ == "__main__":
     db.connect()
     db.create_tables([Housing], safe=True)
-    # view_entry()
-    return_specific("ARC")
-
-
+    #  load_database()
