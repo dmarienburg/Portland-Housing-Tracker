@@ -2,6 +2,7 @@ __author__ = 'David'
 
 import csv
 
+
 def get_data():
     """
     This will get data from the csv downloaded from google and feed it to the database
